@@ -8,8 +8,8 @@
 
 
 loginUsuario = [
-    {"login": "admin", "senha":"admin", "saldo":0},
-    {"login": "joji", "senha":"joji", "saldo":150},
+    {"login": "admin", "senha":"admin", "saldo":0, "telefone":"99999999"},
+    {"login": "joji", "senha":"joji", "saldo":150, "telefone":"27996457519"},
     
 ]
 marcasCarro = {
@@ -302,10 +302,12 @@ def perfilCliente(usuarioLogado):
 
     login = usuarioLogado['login']
     saldo = usuarioLogado['saldo']
+    telefone = usuarioLogado['telefone']
 
     print("___________________________________________\n")
     print("-----------------FaustinoCar-----------------")
     print(f"Nome: {login}")
+    print(f"Telefone: ({telefone[:2]}) {telefone[2:7]}-{telefone[7:]}")
     print(f"Saldo: R${saldo:.2f}")
     print("---------------------------------------------")
     print("_____________________________________________\n")
@@ -370,12 +372,13 @@ def menuCadastro():
 
     ll = input("Informe Login: ")
     ss = input("Informe Senha: ")
+    tt = str(input("Informe Telefone com DDD: "))
     for user in loginUsuario:
         if user["login"] == ll:
             print("\nEsse login já existe. Tente outro.\n")
             return
         
-    loginUsuario.append({"login": ll, "senha": ss, "saldo": 0})
+    loginUsuario.append({"login": ll, "senha": ss, "saldo": 0,"telefone":tt})
     print("\nUsuário cadastrado com sucesso!\n")
     
 
